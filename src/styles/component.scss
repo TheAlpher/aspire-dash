@@ -3,66 +3,115 @@
     min-height: 100vh;
 }
 
-.ant-layout-sider{
+.ant-layout-sider {
     background: $aspire-blue-bg;
-     p{
+
+    p {
         opacity: 30%;
-     }
+    }
 }
+
+.collapse-toggle-section {
+    color: $aspire-green;
+}
+
 .dashboard-sider-menu {
-    border-inline-end:unset!important;
+    border-inline-end: unset !important;
 
-        .ant-menu-item {
-    span  {
-        vertical-align: middle !important;
+    .ant-menu-item {
+        span {
+            vertical-align: middle !important;
 
+        }
+
+        svg {
+            min-width: 18px !important;
+            height: 18px !important;
+        }
+
+        &-active {
+            color: $aspire-green !important;
+        }
+
+        &-selected {
+            background: transparent;
+            color: $aspire-green;
+        }
     }
-     svg {
-        min-width: 18px !important;
-        height: 18px !important;
-     }
-    
-     &-active  {
-        color:$aspire-green !important; 
-     }
-    &-selected{
-        background: transparent;
-        color:$aspire-green;
-    }
-}
-    
+
 }
 
-.dashboard-sider-menu{
-background: transparent !important;
-color:white;
-.ant-menu-item-selected {
-    
-}
+.dashboard-sider-menu {
+    background: transparent !important;
+    color: white;
+
+    .ant-menu-item-selected {}
 }
 
 .home {
-    &__header{
-            &__left {
-                //color:white;
-                &--tag {
-                    background-color: $aspire-green;
-                    color:white;
-                }
-                 &--value {
-                    font-size: 2rem;
-                 }
-                 
+    &__header {
+        &__left {
+
+            //color:white;
+            &--tag {
+                background-color: $aspire-green;
+                color: white;
             }
 
-            &__right {
-                button, button:hover {
-                    display: flex;
-                    align-items: center;
-                    background: $aspire-blue2 !important;
-                    color:white !important;
-                }
-             
+            &--value {
+                font-size: 2rem;
             }
+
+        }
+
+        &__right {
+
+            button,
+            button:hover {
+                display: flex;
+                align-items: center;
+                background: $aspire-blue2 !important;
+                color: white !important;
+            }
+
+        }
+    }
+}
+
+.display-card {
+    position: relative;
+
+    &__show-btn {
+        color: $aspire-green;
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        box-shadow: unset !important;
+        border: 0 !important;
+        margin-right: 0;
+        margin-bottom: -4px;
+        background: white;
+        border-bottom-left-radius: 0px !important;
+        border-bottom-right-radius: 0px !important;
+    }
+
+    &__show-btn:hover {
+        color: $aspire-green !important;
+    }
+
+    &__content {
+        background: $aspire-green;
+        color: white;
+
+        &--company {
+            margin-left: auto;
+            margin-right: 0;
+            display: block;
+        }
+
+        &--username {
+            font-size: 1.4rem;
+        }
+
     }
 }
