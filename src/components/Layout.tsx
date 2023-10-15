@@ -27,21 +27,22 @@ function DashboardLayout() {
     <Layout style={{ height: "100vh", flexDirection: "row" , width:'100vw'}}>
       <Sider
         style={{ background: "#0C365A" }}
-        className="px-3 py-3"
+        className="px-4 py-5"
         collapsible
+        width={340}
         trigger={null}
         breakpoint="md"
         collapsed={collapsed}
       
       >
-        <div className="d-flex justify-content-center flex-wrap"
+        <div className="d-flex  flex-wrap"
           onClick={(e: any) => {
             e?.preventDefault();
             setCollapsed(!collapsed);
           }}
         >
           <img  src={collapsed ? LogoSmall : LogoBig} alt="Aspire" />
-     <p className="mt-3 w-100" style={{color:'white', height:'5rem'}}>{collapsed?'':'Trusted way of banking for 3,000+ SMEs and startups in Singapore'}</p>
+             <p className="mt-3 w-100" style={{color:'white', height:'5rem'}}>{collapsed?'':'Trusted way of banking for 3,000+ SMEs and startups in Singapore'}</p>
         </div>
         <Menu
           className="dashboard-sider-menu"

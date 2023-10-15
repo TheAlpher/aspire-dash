@@ -1,10 +1,13 @@
 .dashboard-content-wrapper {
     width: 100%;
-    background-color: yellow;
+    min-height: 100vh;
 }
 
 .ant-layout-sider{
     background: $aspire-blue-bg;
+     p{
+        opacity: 30%;
+     }
 }
 .dashboard-sider-menu {
     border-inline-end:unset!important;
@@ -36,4 +39,30 @@ color:white;
 .ant-menu-item-selected {
     
 }
+}
+
+.home {
+    &__header{
+            &__left {
+                //color:white;
+                &--tag {
+                    background-color: $aspire-green;
+                    color:white;
+                }
+                 &--value {
+                    font-size: 2rem;
+                 }
+                 
+            }
+
+            &__right {
+                button, button:hover {
+                    display: flex;
+                    align-items: center;
+                    background: $aspire-blue2 !important;
+                    color:white !important;
+                }
+             
+            }
+    }
 }
