@@ -6,7 +6,8 @@ import {  EllipsisOutlined } from "@ant-design/icons";
 import { useLocation, Link } from "react-router-dom";
 import Home from "./Home";
 import menuRoutes from "../routes/menuRoutes";
-
+import LogoBig from '../assets/logoBig.svg';
+import LogoSmall from '../assets/logoSmall.svg';
 
 const { Sider } = Layout;
 
@@ -25,7 +26,8 @@ function DashboardLayout() {
   return (
     <Layout style={{ height: "100vh", flexDirection: "row" }}>
       <Sider
-        style={{ background: "white" }}
+        style={{ background: "#0C365A" }}
+        className="px-3 py-3"
         collapsible
         trigger={null}
         breakpoint="md"
@@ -38,17 +40,20 @@ function DashboardLayout() {
             setCollapsed(!collapsed);
           }}
         >
-          <button>Collapse</button>
+          <img src={collapsed ? LogoSmall : LogoBig} alt="Aspire" />
+          <p className="mt-3 " style={{color:'white'}}>Trusted way of banking for 3,000+ SMEs and startups in Singapore</p>
         </div>
         <Menu
           className="dashboard-sider-menu"
           selectedKeys={getSelectedKeys() as string[]}
           overflowedIndicator={<EllipsisOutlined />}
-          items={[]}
+          
         >
           {menuRoutes.map((route: any) => {
             return (
               <Menu.Item
+              className="d-flex"
+
                 key={route.key}
                 title={route.label}
                 icon={
@@ -56,8 +61,8 @@ function DashboardLayout() {
                     role="img"
                     aria-label="pic-right"
                     className="anticon anticon-pic-right ant-menu-item-icon"
-                    dangerouslySetInnerHTML={route.icon}
-                  ></span>
+                 
+                  > <img src ={route.icon} alt={route.label} /></span>
                 }
               >
                 {route.label}
