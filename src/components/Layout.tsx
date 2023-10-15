@@ -8,7 +8,7 @@ import Home from "./Home";
 import menuRoutes from "../routes/menuRoutes";
 import LogoBig from '../assets/logoBig.svg';
 import LogoSmall from '../assets/logoSmall.svg';
-
+import LogoSmall1 from '../assets/logoSmall.svg?react';
 const { Sider } = Layout;
 
 function DashboardLayout() {
@@ -24,7 +24,7 @@ function DashboardLayout() {
   }, [location.pathname]);
 
   return (
-    <Layout style={{ height: "100vh", flexDirection: "row" }}>
+    <Layout style={{ height: "100vh", flexDirection: "row" , width:'100vw'}}>
       <Sider
         style={{ background: "#0C365A" }}
         className="px-3 py-3"
@@ -34,14 +34,14 @@ function DashboardLayout() {
         collapsed={collapsed}
       
       >
-        <div
+        <div className="d-flex justify-content-center flex-wrap"
           onClick={(e: any) => {
             e?.preventDefault();
             setCollapsed(!collapsed);
           }}
         >
-          <img src={collapsed ? LogoSmall : LogoBig} alt="Aspire" />
-          <p className="mt-3 " style={{color:'white'}}>Trusted way of banking for 3,000+ SMEs and startups in Singapore</p>
+          <img  src={collapsed ? LogoSmall : LogoBig} alt="Aspire" />
+     <p className="mt-3 w-100" style={{color:'white', height:'5rem'}}>{collapsed?'':'Trusted way of banking for 3,000+ SMEs and startups in Singapore'}</p>
         </div>
         <Menu
           className="dashboard-sider-menu"
@@ -52,7 +52,7 @@ function DashboardLayout() {
           {menuRoutes.map((route: any) => {
             return (
               <Menu.Item
-              className="d-flex"
+              className="d-flex my-5 align-items-center"
 
                 key={route.key}
                 title={route.label}
@@ -62,7 +62,7 @@ function DashboardLayout() {
                     aria-label="pic-right"
                     className="anticon anticon-pic-right ant-menu-item-icon"
                  
-                  > <img src ={route.icon} alt={route.label} /></span>
+                  > <route.icon /> </span>
                 }
               >
                 {route.label}

@@ -6,7 +6,34 @@
 .ant-layout-sider{
     background: $aspire-blue-bg;
 }
+.dashboard-sider-menu {
+    border-inline-end:unset!important;
+
+        .ant-menu-item {
+    span  {
+        vertical-align: middle !important;
+
+    }
+     svg {
+        min-width: 18px !important;
+        height: 18px !important;
+     }
+    
+     &-active  {
+        color:$aspire-green !important; 
+     }
+    &-selected{
+        background: transparent;
+        color:$aspire-green;
+    }
+}
+    
+}
+
 .dashboard-sider-menu{
 background: transparent !important;
 color:white;
+.ant-menu-item-selected {
+    
+}
 }

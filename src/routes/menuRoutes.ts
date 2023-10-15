@@ -1,8 +1,8 @@
-import homeSvg from "../assets/Home.svg";
-import cardSvg from '../assets/Card.svg';
-import paymentSvg from "../assets/Payments.svg";
-import creditSvg from "../assets/Credit.svg";
-import AccountSvg from "../assets/Account.svg"
+import homeSvg from "../assets/Home.svg?react";
+import cardSvg from '../assets/Card.svg?react';
+import paymentSvg from "../assets/Payments.svg?react";
+import creditSvg from "../assets/Credit.svg?react";
+import AccountSvg from "../assets/Account.svg?react";
 const menuRoutes: Record<string, any>[] = [
   {
     key: "/dashboard/home",
