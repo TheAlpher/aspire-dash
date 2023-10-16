@@ -11,6 +11,7 @@ const Home = () => {
       children: (
         <DisplayCard
           cardDetails={{
+            id: "awdawda",
             cardNumber: "1234567890123456",
             expMonth: 3,
             expYear: 2029,
@@ -18,6 +19,7 @@ const Home = () => {
             username: "John Doe",
             country: "USA",
             brand: "VISA",
+            cvv: 102,
           }}
         />
       ),

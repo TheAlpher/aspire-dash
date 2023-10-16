@@ -113,5 +113,17 @@
             font-size: 1.4rem;
         }
 
+        &--number {
+            font-size: 1.4rem;
+            letter-spacing: 0.4rem;
+        }
+
+        &--brand {
+            margin-left: auto;
+            display: block;
+            margin-right: 0;
+            color: white;
+        }
+
     }
 }
