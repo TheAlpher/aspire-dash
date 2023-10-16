@@ -22,7 +22,9 @@ function DashboardLayout() {
   }, [location.pathname]);
 
   return (
-    <Layout style={{ height: "100vh", flexDirection: "row", width: "100vw" }}>
+    <Layout
+      style={{ minHeight: "100vh", flexDirection: "row", width: "100vw" }}
+    >
       <Sider
         style={{ background: "#0C365A" }}
         className="px-4 py-5"

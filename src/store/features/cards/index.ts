@@ -1,44 +1,73 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { CardDetailsInterface } from "../../../interfaces";
+import { CardDetailsInterface, CardsStateInterface } from "../../../interfaces";
+import { INIT_CARDS, INIT_CARDS_STATE } from "../../../utils/constants";
 
 const cardSlice = createSlice({
   name: "cards",
-  initialState: {} as Record<string, CardDetailsInterface>,
+  initialState: INIT_CARDS_STATE,
   reducers: {
     addCard: (state, action) => {
       return {
         ...state,
-        [action.payload.cardDetails.id]: action.payload.cardDetails,
+        cards: {
+          ...state.allCards,
+          [action.payload.cardDetails.id]: action.payload.cardDetails,
+        },
       };
     },
     updateCard: (state, action) => {
+       
       return {
         ...state,
-        [action.payload.cardId]: {
-          ...state[action.payload.cardId],
-          ...action.payload.cardDetails,
+        cards: {
+          ...state.allCards,
+          [action.payload.cardId]: {
+            ...state["allCards"][action.payload.cardId],
+            ...action.payload.cardDetails,
+          },
         },
       };
     },
     freezeToggle: (state, action) => {
       return {
         ...state,
-        [action.payload.cardId]: {
-          ...state[action.payload.cardId],
-          frozne: !state[action.payload.cardId].frozen,
+        allCards: {
+          ...state.allCards,
+          [action.payload.cardId]: {
+            ...state["allCards"][action.payload.cardId],
+            frozen: !state["allCards"][action.payload.cardId].frozen,
+          },
         },
       };
     },
     removeCard: (state, action) => {
-      const originalState: Record<string, CardDetailsInterface> = { ...state };
-      delete originalState[action.payload.cardId];
-      return {
-        ...originalState,
+      const oldCards: Record<string, CardDetailsInterface> = {
+        ...state.allCards,
       };
+      delete oldCards[action.payload.cardId];
+      if (state.activeCardId == action.payload.cardId) {
+        return {
+          ...state,
+          allCards: oldCards,
+          activeCardId: null,
+        };
+      } else
+        return {
+          ...state,
+          allCards: oldCards,
+        };
+    },
+    changeActiveCard: (state, action) => {
+      return { ...state, activeCardId: action.payload.cardId };
     },
   },
 });
 
-export const { addCard, updateCard, freezeToggle, removeCard } =
-  cardSlice.actions;
+export const {
+  addCard,
+  updateCard,
+  freezeToggle,
+  removeCard,
+  changeActiveCard,
+} = cardSlice.actions;
 export default cardSlice.reducer;

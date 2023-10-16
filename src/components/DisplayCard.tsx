@@ -4,25 +4,15 @@ import Eye from "../assets/Eye.svg?react";
 import LogoBig from "../assets/logoBig.svg?react";
 import Visa from "../assets/visa.svg?react";
 import { DisplayCardProps } from "../interfaces";
+import { generateNumberString } from "../utils/helpers";
 const DisplayCard = (props: DisplayCardProps) => {
   const [showNumber, setShowNumber] = useState<boolean>(false);
   const toggleNumber = (): void => {
     setShowNumber(!showNumber);
   };
-  const generateNumberString = (
-    numberStr: string,
-    isHidden: boolean
-  ): string => {
-    return (
-      (isHidden
-        ? numberStr.substring(0, 12).replace(/(\d{4}(?!\s))/g, "$1 ")
-        : "**** **** ****") +
-      " " +
-      numberStr.substring(numberStr.length - 4, numberStr.length)
-    );
-  };
+
   const generateCVV = (numberStr: string, isHidden: boolean): string => {
-    return isHidden ? numberStr : "***";
+    return !isHidden ? numberStr : "***";
   };
   return (
     <div className="display-card">

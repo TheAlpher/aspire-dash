@@ -1,27 +1,24 @@
 import { Fragment } from "react";
-import { Row, Tag, Button, Tabs } from "antd";
+import { Row, Tag, Button, Tabs, Col } from "antd";
 import AddBox from "../assets/AddBox.svg?react";
 import type { TabsProps } from "antd";
 import DisplayCard from "./DisplayCard";
+import CardCarousel from "./CardCarousel";
+import DetailPanels from "./DetailPanels";
 const Home = () => {
   const items: TabsProps["items"] = [
     {
       key: "1",
       label: "My debit cards",
       children: (
-        <DisplayCard
-          cardDetails={{
-            id: "awdawda",
-            cardNumber: "1234567890123456",
-            expMonth: 3,
-            expYear: 2029,
-            frozen: false,
-            username: "John Doe",
-            country: "USA",
-            brand: "VISA",
-            cvv: 102,
-          }}
-        />
+        <Row gutter={[24, 36]}>
+          <Col lg={12} md={24} sm={24}>
+            <CardCarousel />
+          </Col>{" "}
+          <Col lg={12} md={24} sm={24}>
+            <DetailPanels />
+          </Col>
+        </Row>
       ),
     },
     {

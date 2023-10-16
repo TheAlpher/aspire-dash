@@ -127,3 +127,83 @@
 
     }
 }
+
+
+.card-carousel--dots {
+    bottom: -24px !important;
+    margin-bottom: 50px;
+
+    li {
+        height: 10px !important;
+
+
+        button {
+            height: 10px !important;
+            border-radius: 10px !important;
+            background: $aspire-green !important;
+
+        }
+
+
+    }
+
+    li.slick-active {
+        background-color: $aspire-green;
+        border-radius: 10px !important;
+
+        button {
+            height: 10px !important;
+            border-radius: 10px !important;
+            background: $aspire-green !important;
+
+        }
+    }
+}
+
+
+.transaction-card {
+    &__status__icon {
+        background: $aspire-blue2;
+        border-radius: 3px;
+        position: relative;
+        width: 20px;
+        height: 16px;
+
+        svg {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px !important;
+            height: 10px !important;
+        }
+    }
+
+    .icon-bg-merchant {
+        background-color: $aspire-blue-bg2;
+    }
+
+    .icon-bg-travel {
+        background-color: $aspire-green-bg;
+    }
+
+    .icon-bg-food {
+        background-color: $aspire-red-bg;
+
+    }
+
+    &__icon-wrapper {
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        position: relative;
+
+        svg {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+    }
+}
