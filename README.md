@@ -1,27 +1,41 @@
-# React + TypeScript + Vite
+# aspire-dashboard-v1
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project setup
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```
+npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Compiles and hot-reloads for development
+
+```
+npm run dev
+```
+
+### Project Description
+
+```
+Aspire Dashboard
+- 1 dashboard page named Home, invalid routes redirect to home page.
+- Actions supported
+    -> Add New Card
+    -> Remove Card
+    -> Freeze Card
+    -> Add Card to Gpay ( Visual only)
+- Mobile responsive.
+- Redux store used to store card details.
+- Add new card modal includes form validation.
+
+```
+### Project Assumptions
+```
+- Only 1 page (Home) needs to be developed for the assignment.
+- Initial dashboard state includes pre-existing cards stored in some state management system.
+- Remove card just requires a confirmation step with no extra details.
+- Project resets to its initial state on refresh as no external data storing service is involved.
+```
+### Compile for production
+
+```
+npm run build
+```
