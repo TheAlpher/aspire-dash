@@ -1,24 +1,13 @@
-import { Button, Form, Input, Modal, Select, Row, notification } from "antd";
-import moment from "moment-timezone";
+import { Modal,  notification } from "antd";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { nanoid } from "nanoid";
-import { addCard, removeCard } from "../../store/features/cards";
-import { useEffect } from "react";
+import {  removeCard } from "../../store/features/cards";
 import { getLast4 } from "../../utils/helpers";
 interface RemoveCardModalProps {
   open: boolean;
   onCancel: () => void;
 }
 const RemoveCardModal = ({ open, onCancel }: RemoveCardModalProps) => {
-  const [form] = Form.useForm();
   const { allCards, activeCardId } = useAppSelector((state) => state.cards);
-  useEffect(() => {
-    form.setFieldsValue({
-      //brand: "VISA",
-      expMonth: 12,
-      expYear: moment().year() + (Math.floor(Math.random() * 12) + 1),
-    });
-  }, []);
   const dispatch = useAppDispatch();
   return (
     <Modal

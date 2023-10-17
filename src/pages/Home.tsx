@@ -2,11 +2,11 @@ import { Fragment, useState } from "react";
 import { Row, Tag, Button, Tabs, Col } from "antd";
 import AddBox from "../assets/AddBox.svg?react";
 import type { TabsProps } from "antd";
-import DisplayCard from "./DisplayCard";
-import CardCarousel from "./CardCarousel";
-import DetailPanels from "./DetailPanels";
-import CardActions from "./CardActions";
-import NewCardModal from "./modals/NewCardModal";
+import DisplayCard from "../components/DisplayCard";
+import CardCarousel from "../components/CardCarousel";
+import DetailPanels from "../components/DetailPanels";
+import CardActions from "../components/CardActions";
+import NewCardModal from "../components/modals/NewCardModal";
 const Home = () => {
   const [isAddModalOpen, setAddModal] = useState<boolean>(false);
   const items: TabsProps["items"] = [
@@ -28,7 +28,11 @@ const Home = () => {
     {
       key: "2",
       label: "All company cards",
-      children: "Content of Tab Pane 2",
+      children: (
+        <p className="aspire-green-text text-center fw-bold px-5 py-5">
+          Coming soon!
+        </p>
+      ),
     },
   ];
   const toggleAddModal = () => {

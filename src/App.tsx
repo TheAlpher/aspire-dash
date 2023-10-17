@@ -1,11 +1,9 @@
-import { useState, Suspense } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { Suspense } from "react";
 import { store } from "./store";
 import "./styles/all.scss";
 import { Spin } from "antd";
 import DashboardLayout from "./components/Layout";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Provider } from "react-redux";
 function App() {
   return (
@@ -29,6 +27,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/dashboard/*" element={<DashboardLayout />} />
+            <Route path="*" element={<Navigate to="/dashboard/home" />} />
           </Routes>{" "}
         </BrowserRouter>
       </Suspense>

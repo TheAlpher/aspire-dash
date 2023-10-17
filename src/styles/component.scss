@@ -1,8 +1,16 @@
-.dashboard-content-wrapper {
+.dashboard-content {
     width: 100%;
-    min-height: 100vh;
-}
+    width: -moz-available;
+    /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available;
+    /* Mozilla-based browsers will ignore this. */
+    width: fill-available;
 
+    &-wrapper {
+        width: 100%;
+        min-height: 100vh;
+    }
+}
 
 
 .ant-layout-sider {
@@ -17,8 +25,7 @@
     color: $aspire-green;
 }
 
-.dashboard-sider-menu,
-.dashboard-footer-menu {
+.dashboard-sider-menu {
     border-inline-end: unset !important;
 
     .ant-menu-item {
@@ -238,7 +245,40 @@
     background: white;
     justify-content: space-evenly;
 
-    &__item {}
+    .ant-menu-item-active,
+    .ant-menu-item-selected {
+        * {
+            color: $aspire-green !important;
+        }
+
+        &::after {
+            border-bottom-color: $aspire-green !important;
+        }
+    }
+
+    li {
+        padding: 0 !important;
+    }
+
+    &__item {
+        width: 20%;
+
+        .ant-menu-title-content {
+            text-align: center;
+        }
+
+        &__icon {
+            padding-top: 0.5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        &__label {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
 }
 
 

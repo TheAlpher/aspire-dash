@@ -24,9 +24,9 @@ const FooterMenu = () => {
             <div className="dashboard-footer-menu__item__icon">
               <route.icon />
             </div>{" "}
-            <span className="dashboard-footer-menu__item__label">
+            <p className="dashboard-footer-menu__item__label mb-0">
               {route.label}
-            </span>
+            </p>
             <Link to={route.path}></Link>
           </Menu.Item>
         );

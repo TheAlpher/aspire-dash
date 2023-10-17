@@ -4,28 +4,31 @@ import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import type { MenuProps } from "antd";
 import { EllipsisOutlined } from "@ant-design/icons";
 import { useLocation, Link } from "react-router-dom";
-import Home from "./Home";
+import Home from "../pages/Home";
 import menuRoutes from "../routes/menuRoutes";
 import LogoBig from "../assets/logoBig.svg?react";
 import LogoSmall from "../assets/logoSmall.svg?react";
 import FooterMenu from "./FooterMenu";
 import isMobile from "is-mobile";
+import { useWindowDimensions } from "../hooks";
 const { Sider } = Layout;
 
 function DashboardLayout() {
   const location = useLocation();
   const [collapsed, setCollapsed] = useState<boolean>(false);
-
+  const { width } = useWindowDimensions();
   const getSelectedKeys = useCallback(() => {
     const pathSnippets = location.pathname.split("/").filter((i) => i);
     return pathSnippets.map((_, index) => {
       return `/${pathSnippets.slice(0, index + 1).join("/")}`;
     });
   }, [location.pathname]);
-
+  const getInMobileMode = (): boolean => {
+    return width ? width <= 576 : isMobile();
+  };
   return (
     <Layout style={{ minHeight: "100vh", flexDirection: "row" }}>
-      {!isMobile() ? (
+      {!getInMobileMode() ? (
         <Sider
           style={{ background: "#0C365A" }}
           className="px-4 py-5"
@@ -84,18 +87,19 @@ function DashboardLayout() {
       ) : (
         <></>
       )}
-      <Layout style={{ maxWidth: "100vw" }}>
+      <Layout className="dashboard-content">
         <div
           className={
             "dashboard-content-wrapper  pt-3 pb-1 " +
-            (!isMobile() ? "p-5" : " mobile-content-wrapper")
+            (!getInMobileMode() ? "p-5" : " mobile-content-wrapper")
           }
         >
           <Routes>
             <Route path="/home" element={<Home />} />
+            <Route path="*" element={<Navigate to="/dashboard/home" />} />
           </Routes>
         </div>
-        {isMobile() ? <FooterMenu /> : <></>}
+        {getInMobileMode() ? <FooterMenu /> : <></>}
       </Layout>
     </Layout>
   );
