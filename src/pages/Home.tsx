@@ -1,5 +1,5 @@
-import {  useState } from "react";
-import { Row, Tag, Button, Tabs, Col } from "antd";
+import { useState, useEffect, Fragment } from "react";
+import { Row, Tag, Button, Tabs, Col, Skeleton } from "antd";
 import AddBox from "../assets/AddBox.svg?react";
 import type { TabsProps } from "antd";
 import CardCarousel from "../components/CardCarousel";
@@ -7,8 +7,15 @@ import DetailPanels from "../components/DetailPanels";
 import CardActions from "../components/CardActions";
 import NewCardModal from "../components/modals/NewCardModal";
 import LogoSmall from "../assets/logoSmall.svg?react";
+import { getUserDetails } from "../services/actions";
+import { useAppDispatch } from "../store/hooks";
+import { addMultiple } from "../store/features/cards";
+import { INIT_CARDS } from "../utils/constants";
 const Home = () => {
   const [isAddModalOpen, setAddModal] = useState<boolean>(false);
+  const [userBalance, setUserBalance] = useState<number>(0);
+  const [detailsLoaded, setDetailsLoaded] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
   const items: TabsProps["items"] = [
     {
       key: "1",
@@ -16,11 +23,19 @@ const Home = () => {
       children: (
         <Row gutter={[24, 36]} className="mx-0">
           <Col lg={12} md={24} sm={24} xs={24} className="px-0">
-            <CardCarousel />
-            <CardActions />
+            {!detailsLoaded ? (
+              <Fragment>
+                <Skeleton /> <Skeleton />
+              </Fragment>
+            ) : (
+              <Fragment>
+                <CardCarousel />
+                <CardActions />
+              </Fragment>
+            )}
           </Col>{" "}
           <Col lg={12} md={24} sm={24} xs={24}>
-            <DetailPanels />
+            {!detailsLoaded ? <Skeleton /> : <DetailPanels />}
           </Col>
         </Row>
       ),
@@ -37,6 +52,32 @@ const Home = () => {
   ];
   const toggleAddModal = () => {
     setAddModal(!isAddModalOpen);
+  };
+
+  useEffect(() => {
+    fetchUserCards();
+  }, []);
+  const fetchUserCards = () => {
+    getUserDetails()
+      .then((res: any) => {
+        /***
+         *Only Mocked so will fail everytime
+         */
+        console.log(res);
+      })
+      .catch((err) => {
+        console.error(err);
+        dispatch(addMultiple({ cards: INIT_CARDS }));
+        setUserBalance(3000);
+      })
+      .finally(() => {
+        /**
+         * Inentional Delay to imitate Api Response
+         */
+        setTimeout(() => {
+          setDetailsLoaded(true);
+        }, 300);
+      });
   };
   return (
     <div className="home">
@@ -55,7 +96,13 @@ const Home = () => {
             <Tag className="home__header__left--tag" color="#01D167">
               S$
             </Tag>
-            <span className="home__header__left--value fw-bold">3000</span>
+            {detailsLoaded ? (
+              <span className="home__header__left--value fw-bold">
+                {userBalance}
+              </span>
+            ) : (
+              <Skeleton.Input />
+            )}
           </Row>
         </div>
         <div className="home__header__right">

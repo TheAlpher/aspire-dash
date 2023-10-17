@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { CardDetailsInterface } from "../../../interfaces";
-import {  INIT_CARDS_STATE } from "../../../utils/constants";
+import { INIT_CARDS_STATE } from "../../../utils/constants";
 
 const cardSlice = createSlice({
   name: "cards",
@@ -59,6 +59,15 @@ const cardSlice = createSlice({
     changeActiveCard: (state, action) => {
       return { ...state, activeCardId: action.payload.cardId };
     },
+    addMultiple: (state, action) => {
+      return {
+        ...state,
+        allCards: {
+          ...state.allCards,
+          ...action.payload.cards,
+        },
+      };
+    },
   },
 });
 
@@ -68,5 +77,6 @@ export const {
   freezeToggle,
   removeCard,
   changeActiveCard,
+  addMultiple,
 } = cardSlice.actions;
 export default cardSlice.reducer;

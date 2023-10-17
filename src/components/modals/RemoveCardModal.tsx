@@ -11,6 +11,7 @@ const RemoveCardModal = ({ open, onCancel }: RemoveCardModalProps) => {
   const dispatch = useAppDispatch();
   return (
     <Modal
+      centered
       okText={"Confirm"}
       open={open}
       title="Remove card"

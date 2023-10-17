@@ -21,7 +21,7 @@ const DetailPanels = () => {
 
           children: (
             <div className="p-2">
-              <Row>
+              <Row className="px-2">
                 <Col lg={12} sm={12} xs={12} className="fw-bold">
                   Card Number:
                 </Col>
