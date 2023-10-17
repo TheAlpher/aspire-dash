@@ -72,7 +72,7 @@ const DetailPanels = () => {
             </Row>
           ),
           children: allCards[activeCardId as string]["transactions"].length ? (
-            <div >
+            <div>
               {allCards[activeCardId as string]["transactions"].map(
                 (transac: CardTransactDetails) => (
                   <TransactionCard key={transac.id} transaction={transac} />
@@ -100,7 +100,9 @@ const DetailPanels = () => {
       className="w-100 details-panel__collapse"
     />
   ) : (
-    <p className="aspire-green-text px-2 py-2">No active cards</p>
+    <p className="aspire-green-text aspire-green-bg fw-bold text-center px-2 py-5">
+      No active cards
+    </p>
   );
 };
 

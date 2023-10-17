@@ -19,7 +19,7 @@ const CardCarousel = () => {
   }, []);
   return Object.keys(cardsState.allCards).length ? (
     <Carousel
-      className="mb-5"
+      className="mb-5 mx-2"
       dots={{ className: "card-carousel--dots " }}
       afterChange={(val) => {
         console.log("cahnged", val);
@@ -37,7 +37,9 @@ const CardCarousel = () => {
       })}
     </Carousel>
   ) : (
-    <p className="aspire-green-text px-5 py-5 ">No Cards present</p>
+    <p className="aspire-green-text text-center px-5 py-5 aspire-green-bg">
+      No cards present
+    </p>
   );
 };
 

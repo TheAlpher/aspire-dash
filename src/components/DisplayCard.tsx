@@ -5,6 +5,8 @@ import LogoBig from "../assets/logoBig.svg?react";
 import Visa from "../assets/visa.svg?react";
 import { DisplayCardProps } from "../interfaces";
 import { generateNumberString } from "../utils/helpers";
+import FreezeSvg from "../assets/freezeCard.svg?react";
+import GpaySvg from "../assets/GPay.svg?react";
 const DisplayCard = (props: DisplayCardProps) => {
   const [showNumber, setShowNumber] = useState<boolean>(false);
   const toggleNumber = (): void => {
@@ -24,7 +26,13 @@ const DisplayCard = (props: DisplayCardProps) => {
         {showNumber ? "Hide" : "Show"} card number
       </Button>
       <Card className="display-card__content">
-        <LogoBig className="display-card__content--company" />
+        <Row justify={"space-between"}>
+          <Row>
+            {props.cardDetails.frozen ? <FreezeSvg className="mx-1" /> : <></>}
+            {props.cardDetails.gpay ? <GpaySvg className="mx-1" /> : <></>}
+          </Row>
+          <LogoBig className="display-card__content--company" />
+        </Row>
         <p className="mt-3 display-card__content--username fw-bold">
           {props.cardDetails?.username}
         </p>

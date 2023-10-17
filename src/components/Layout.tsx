@@ -88,7 +88,7 @@ function DashboardLayout() {
         <div
           className={
             "dashboard-content-wrapper  pt-3 pb-1 " +
-            (!isMobile() ? "p-5" : "px-2 mobile-content-wrapper")
+            (!isMobile() ? "p-5" : " mobile-content-wrapper")
           }
         >
           <Routes>

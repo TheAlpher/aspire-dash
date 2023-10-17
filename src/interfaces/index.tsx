@@ -4,10 +4,10 @@ export interface CardDetailsInterface {
   expYear: number;
   frozen: boolean;
   username: string;
-  country: string;
   brand: string;
   cvv: number;
   id: string;
+  gpay?: boolean;
   transactions: CardTransactDetails[];
 }
 export interface DisplayCardProps {

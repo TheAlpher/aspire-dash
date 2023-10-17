@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Row, Tag, Button, Tabs, Col } from "antd";
 import AddBox from "../assets/AddBox.svg?react";
 import type { TabsProps } from "antd";
@@ -6,14 +6,16 @@ import DisplayCard from "./DisplayCard";
 import CardCarousel from "./CardCarousel";
 import DetailPanels from "./DetailPanels";
 import CardActions from "./CardActions";
+import NewCardModal from "./NewCardModal";
 const Home = () => {
+  const [isAddModalOpen, setAddModal] = useState<boolean>(false);
   const items: TabsProps["items"] = [
     {
       key: "1",
       label: "My debit cards",
       children: (
         <Row gutter={[24, 36]} className="mx-0">
-          <Col lg={12} md={24} sm={24} xs={24}>
+          <Col lg={12} md={24} sm={24} xs={24} className="px-0">
             <CardCarousel />
             <CardActions />
           </Col>{" "}
@@ -29,10 +31,13 @@ const Home = () => {
       children: "Content of Tab Pane 2",
     },
   ];
+  const toggleAddModal = () => {
+    setAddModal(!isAddModalOpen);
+  };
   return (
     <div className="home">
       <Row
-        className="home__header pt-5"
+        className="home__header pt-5 px-2"
         justify={"space-between"}
         align={"middle"}
       >
@@ -47,6 +52,9 @@ const Home = () => {
         </div>
         <div className="home__header__right">
           <Button
+            onClick={() => {
+              toggleAddModal();
+            }}
             className="home__header__right--add-btn"
             icon={<AddBox />}
           >
@@ -54,8 +62,8 @@ const Home = () => {
           </Button>
         </div>
       </Row>
-
-      <Tabs items={items} defaultActiveKey="1"></Tabs>
+      <NewCardModal open={isAddModalOpen} onCancel={toggleAddModal} />
+      <Tabs className="home__tabs" items={items} defaultActiveKey="1"></Tabs>
     </div>
   );
 };

@@ -81,7 +81,14 @@
 
         }
     }
+
+    &__tabs {
+        .ant-tabs-nav {
+            margin-inline: 1rem;
+        }
+    }
 }
+
 
 .display-card {
     position: relative;
@@ -109,8 +116,7 @@
         color: white;
 
         &--company {
-            margin-left: auto;
-            margin-right: 0;
+            justify-self: flex-end;
             display: block;
         }
 

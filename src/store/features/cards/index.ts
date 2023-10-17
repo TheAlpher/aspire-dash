@@ -9,17 +9,16 @@ const cardSlice = createSlice({
     addCard: (state, action) => {
       return {
         ...state,
-        cards: {
+        allCards: {
           ...state.allCards,
           [action.payload.cardDetails.id]: action.payload.cardDetails,
         },
       };
     },
     updateCard: (state, action) => {
-       
       return {
         ...state,
-        cards: {
+        allCards: {
           ...state.allCards,
           [action.payload.cardId]: {
             ...state["allCards"][action.payload.cardId],
@@ -35,16 +34,18 @@ const cardSlice = createSlice({
           ...state.allCards,
           [action.payload.cardId]: {
             ...state["allCards"][action.payload.cardId],
-            frozen: !state["allCards"][action.payload.cardId].frozen,
+            frozen: !state["allCards"][action.payload.cardId]["frozen"],
           },
         },
       };
     },
     removeCard: (state, action) => {
+      console.log(" remove called");
       const oldCards: Record<string, CardDetailsInterface> = {
         ...state.allCards,
       };
       delete oldCards[action.payload.cardId];
+      console.log(" after deletion", oldCards);
       if (state.activeCardId == action.payload.cardId) {
         return {
           ...state,
