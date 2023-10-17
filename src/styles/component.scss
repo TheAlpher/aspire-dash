@@ -61,7 +61,13 @@
 
 
 .home {
+    &__mobile-logo {
+        display: none;
+    }
+
     &__header {
+        padding-top: 3rem;
+
         &__left {
 
             //color:white;
@@ -92,6 +98,21 @@
     &__tabs {
         .ant-tabs-nav {
             margin-inline: 1rem;
+
+            .ant-tabs-tab {
+                color: $aspire-grey;
+
+                &-active {
+                    * {
+                        color: black !important;
+                    }
+                }
+            }
+
+            .ant-tabs-ink-bar {
+                background: $aspire-turquoise;
+            }
+
         }
     }
 }
@@ -234,8 +255,13 @@
 }
 
 .details-panel__collapse {
+
     .ant-collapse-content-box {
         padding: 0 !important;
+    }
+
+    .ant-collapse-item {
+        background: $aspire-blue-bg3 !important;
     }
 }
 
@@ -244,6 +270,10 @@
     bottom: 0;
     background: white;
     justify-content: space-evenly;
+
+    .ant-menu-item {
+        color: $aspire-grey;
+    }
 
     .ant-menu-item-active,
     .ant-menu-item-selected {
@@ -265,6 +295,7 @@
 
         .ant-menu-title-content {
             text-align: center;
+
         }
 
         &__icon {
@@ -291,17 +322,65 @@
 .mobile-content-wrapper {
     background: $aspire-blue1;
 
-    .home__header {
-        * {
-            color: white !important;
+    .home {
+        &__mobile-logo {
+            display: flex;
+            color: $aspire-green;
+            padding-right: 2rem;
+            padding-top: 2rem;
+
+            svg {
+                scale: 1.2;
+            }
+        }
+
+        &__header {
+            padding-top: unset !important;
+        }
+
+        &__tabs {
+            .ant-tabs-nav {
+                &::before {
+                    border-bottom-color: transparent !important;
+                }
+
+                .ant-tabs-tab {
+                    color: $aspire-grey;
+
+                    &-active {
+                        * {
+                            color: white !important;
+                        }
+                    }
+                }
+
+                .ant-tabs-ink-bar {
+                    background: $aspire-turquoise;
+                }
+
+            }
+        }
+
+        &__header {
+            * {
+                color: white !important;
+            }
+
+            &__right {
+                button {
+                    background: transparent !important;
+                    border: 0 !important;
+
+                    * {
+                        color: $aspire-turquoise !important;
+                    }
+                }
+            }
         }
     }
 
-
     .display-card {
         &__content {
-
-            &--company {}
 
             &--username {
                 font-size: 1rem;

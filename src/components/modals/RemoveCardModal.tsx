@@ -1,6 +1,6 @@
-import { Modal,  notification } from "antd";
+import { Modal, notification } from "antd";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import {  removeCard } from "../../store/features/cards";
+import { removeCard } from "../../store/features/cards";
 import { getLast4 } from "../../utils/helpers";
 interface RemoveCardModalProps {
   open: boolean;
@@ -13,7 +13,7 @@ const RemoveCardModal = ({ open, onCancel }: RemoveCardModalProps) => {
     <Modal
       okText={"Confirm"}
       open={open}
-      title="Remove "
+      title="Remove card"
       okButtonProps={{ className: "aspire-green-bg aspire-green-text" }}
       onCancel={onCancel}
       onOk={() => {

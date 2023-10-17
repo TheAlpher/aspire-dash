@@ -43,7 +43,6 @@ const CardActions = () => {
             sm={4}
             xs={4}
             onClick={() => {
-              console.log("active", activeCardId);
               if (activeCardId) {
                 switch (action.key) {
                   case "freeze":

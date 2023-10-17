@@ -6,13 +6,8 @@ import { useAppSelector } from "../store/hooks";
 import { generateNumberString } from "../utils/helpers";
 import { CardTransactDetails } from "../interfaces";
 import TransactionCard from "./TransactionCard";
-import { useEffect } from "react";
-
 const DetailPanels = () => {
   const { activeCardId, allCards } = useAppSelector((state) => state.cards);
-  useEffect(() => {
-    console.log(" card active changed", activeCardId);
-  }, [activeCardId]);
   const items: CollapseProps["items"] = activeCardId
     ? [
         {

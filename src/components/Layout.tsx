@@ -90,7 +90,7 @@ function DashboardLayout() {
       <Layout className="dashboard-content">
         <div
           className={
-            "dashboard-content-wrapper  pt-3 pb-1 " +
+            "dashboard-content-wrapper   pb-1 " +
             (!getInMobileMode() ? "p-5" : " mobile-content-wrapper")
           }
         >

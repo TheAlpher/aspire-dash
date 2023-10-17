@@ -40,12 +40,10 @@ const cardSlice = createSlice({
       };
     },
     removeCard: (state, action) => {
-      console.log(" remove called");
       const oldCards: Record<string, CardDetailsInterface> = {
         ...state.allCards,
       };
       delete oldCards[action.payload.cardId];
-      console.log(" after deletion", oldCards);
       if (state.activeCardId == action.payload.cardId) {
         return {
           ...state,

@@ -21,7 +21,6 @@ const NewCardModal = ({ open, onCancel }: NewCardModalProps) => {
         className="mt-4"
         layout="vertical"
         onFinish={(values: any) => {
-          console.log("values", values);
           if (values.username.trim().length) {
             const cardDetails = {
               id: nanoid(),

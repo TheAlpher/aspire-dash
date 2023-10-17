@@ -22,7 +22,6 @@ const CardCarousel = () => {
       className="mb-5 mx-2"
       dots={{ className: "card-carousel--dots " }}
       afterChange={(val) => {
-        console.log("cahnged", val);
         dispatch(
           changeActiveCard({ cardId: Object.keys(cardsState.allCards)[val] })
         );

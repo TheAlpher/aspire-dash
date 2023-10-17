@@ -7,6 +7,7 @@ import CardCarousel from "../components/CardCarousel";
 import DetailPanels from "../components/DetailPanels";
 import CardActions from "../components/CardActions";
 import NewCardModal from "../components/modals/NewCardModal";
+import LogoSmall from "../assets/logoSmall.svg?react";
 const Home = () => {
   const [isAddModalOpen, setAddModal] = useState<boolean>(false);
   const items: TabsProps["items"] = [
@@ -40,8 +41,12 @@ const Home = () => {
   };
   return (
     <div className="home">
+      <Row justify={"end"} className="home__mobile-logo pe-3">
+        {" "}
+        <LogoSmall />
+      </Row>
       <Row
-        className="home__header pt-5 px-2"
+        className="home__header px-2"
         justify={"space-between"}
         align={"middle"}
       >
