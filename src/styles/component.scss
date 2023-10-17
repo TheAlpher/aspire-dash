@@ -143,6 +143,11 @@
         background: $aspire-green;
         color: white;
 
+        &-disabled {
+            background: $aspire-grey;
+
+        }
+
         &--company {
             justify-self: flex-end;
             display: block;

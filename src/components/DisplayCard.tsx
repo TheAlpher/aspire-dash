@@ -25,7 +25,11 @@ const DisplayCard = (props: DisplayCardProps) => {
       >
         {showNumber ? "Hide" : "Show"} card number
       </Button>
-      <Card className="display-card__content">
+      <Card
+        className={`display-card__content ${
+          props.cardDetails.frozen ? "display-card__content-disabled" : ""
+        }`}
+      >
         <Row justify={"space-between"}>
           <Row>
             {props.cardDetails.frozen ? <FreezeSvg className="mx-1" /> : <></>}
