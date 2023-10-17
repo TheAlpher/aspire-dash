@@ -8,6 +8,7 @@ import Home from "./Home";
 import menuRoutes from "../routes/menuRoutes";
 import LogoBig from "../assets/logoBig.svg?react";
 import LogoSmall from "../assets/logoSmall.svg?react";
+import FooterMenu from "./FooterMenu";
 const { Sider } = Layout;
 
 function DashboardLayout() {
@@ -85,6 +86,7 @@ function DashboardLayout() {
           </Routes>
         </div>
       </Layout>
+      <FooterMenu />
     </Layout>
   );
 }

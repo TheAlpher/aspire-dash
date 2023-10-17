@@ -14,25 +14,25 @@ const TransactionCard = ({ transaction }: TransactionCardProps) => {
     switch (typeStr) {
       case "travel":
         return (
-          <div className="transaction-card__icon-wrapper icon-bg-travel px-3 py-3">
+          <div className="transaction-card__icon-wrapper icon-travel px-3 py-3">
             <FlightsSvg />
           </div>
         );
       case "merchant":
         return (
-          <div className="transaction-card__icon-wrapper icon-bg-merchant px-3 py-3">
+          <div className="transaction-card__icon-wrapper icon-merchant px-3 py-3">
             <StorageSvg />
           </div>
         );
       case "food":
         return (
-          <div className="transaction-card__icon-wrapper  icon-bg-food px-3 py-3">
+          <div className="transaction-card__icon-wrapper  icon-food px-3 py-3">
             <MegaphoneSvg />
           </div>
         );
       default:
         return (
-          <div className="transaction-card__icon-wrapper  icon-bg-default px-3 py-3">
+          <div className="transaction-card__icon-wrapper  icon-default px-3 py-3">
             <StorageSvg />
           </div>
         );
@@ -41,7 +41,7 @@ const TransactionCard = ({ transaction }: TransactionCardProps) => {
   return (
     <Row className="transaction-card mb-3" justify={"space-between"}>
       <Col>{transactionTypeIcon(transaction.transactType)}</Col>
-      <Col lg={18} sm={18}>
+      <Col lg={20} sm={20}>
         <Row justify={"space-between"}>
           <Col>
             <p className="fw-bold mb-0">{transaction.name}</p>

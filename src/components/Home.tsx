@@ -5,15 +5,17 @@ import type { TabsProps } from "antd";
 import DisplayCard from "./DisplayCard";
 import CardCarousel from "./CardCarousel";
 import DetailPanels from "./DetailPanels";
+import CardActions from "./CardActions";
 const Home = () => {
   const items: TabsProps["items"] = [
     {
       key: "1",
       label: "My debit cards",
       children: (
-        <Row gutter={[24, 36]}>
+        <Row gutter={[24, 36]} className="mx-0">
           <Col lg={12} md={24} sm={24}>
             <CardCarousel />
+            <CardActions />
           </Col>{" "}
           <Col lg={12} md={24} sm={24}>
             <DetailPanels />

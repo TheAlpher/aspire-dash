@@ -78,7 +78,11 @@ const DetailPanels = () => {
                   <TransactionCard key={transac.id} transaction={transac} />
                 )
               )}
-              <Row className="px-2  py-3">
+              <Row
+                align={"middle"}
+                className="px-2 cursor-pointer aspire-green-bg aspire-green-text  py-3"
+                justify={"center"}
+              >
                 <span>View all transactions</span>
               </Row>
             </div>

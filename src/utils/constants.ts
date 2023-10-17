@@ -1,5 +1,9 @@
 import { CardDetailsInterface, CardsStateInterface } from "../interfaces";
-
+import freezeSvg from "../assets/freezeCard.svg?react";
+import deacttivateSvg from "../assets/deactivateCard.svg?react";
+import replaceSvg from "../assets/replaceCard.svg?react";
+import spendLimitSvg from "../assets/spendlimit.svg?react";
+import GPaySvg from "../assets/GPay.svg?react";
 export const INIT_CARDS: Record<string, CardDetailsInterface> = {
   card1: {
     id: "card1",
@@ -62,3 +66,31 @@ export const INIT_CARDS_STATE: CardsStateInterface = {
   allCards: INIT_CARDS,
   activeCardId: null,
 };
+
+export const CARD_ACTIONS: Record<string, any>[] = [
+  {
+    label: "Freeze Card",
+    key: "freeze",
+    icon: freezeSvg,
+  },
+  {
+    label: "Set spend limit",
+    key: "spendlimit",
+    icon: spendLimitSvg,
+  },
+  {
+    label: "Add to Gpay",
+    key: "gpay",
+    icon: GPaySvg,
+  },
+  {
+    label: "Replace Card",
+    key: "replace",
+    icon: replaceSvg,
+  },
+  {
+    label: "Cancel Card",
+    key: "cancel",
+    icon: deacttivateSvg,
+  },
+];

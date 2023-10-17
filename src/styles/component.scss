@@ -15,7 +15,8 @@
     color: $aspire-green;
 }
 
-.dashboard-sider-menu {
+.dashboard-sider-menu,
+.dashboard-footer-menu {
     border-inline-end: unset !important;
 
     .ant-menu-item {
@@ -44,6 +45,13 @@
 .dashboard-sider-menu {
     background: transparent !important;
     color: white;
+
+    .ant-menu-item-selected {}
+}
+
+.dashboard-footer-menu {
+    background: transparent !important;
+    color: $aspire-grey;
 
     .ant-menu-item-selected {}
 }
@@ -179,17 +187,24 @@
         }
     }
 
-    .icon-bg-merchant {
+    .icon-merchant {
         background-color: $aspire-blue-bg2;
+        color: $aspire-blue2;
     }
 
-    .icon-bg-travel {
+    .icon-travel {
         background-color: $aspire-green-bg;
+        color: $aspire-green;
     }
 
-    .icon-bg-food {
+    .icon-food {
         background-color: $aspire-red-bg;
+        color: $aspire-red;
+    }
 
+    .icon-default {
+        background-color: $aspire-red-bg;
+        color: $aspire-red;
     }
 
     &__icon-wrapper {
@@ -206,4 +221,15 @@
 
         }
     }
+}
+
+
+.dashboard-footer-menu {
+    &__item {}
+}
+
+
+.card-actions {
+    border-radius: 5px;
+    background: $aspire-blue-bg;
 }

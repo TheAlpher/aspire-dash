@@ -19,7 +19,8 @@ const CardCarousel = () => {
   }, []);
   return Object.keys(cardsState.allCards).length ? (
     <Carousel
-      dots={{ className: "card-carousel--dots" }}
+      className="mb-5"
+      dots={{ className: "card-carousel--dots " }}
       afterChange={(val) => {
         console.log("cahnged", val);
         dispatch(
