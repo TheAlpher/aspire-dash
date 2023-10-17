@@ -10,3 +10,7 @@ export const generateNumberString = (
     numberStr.substring(numberStr.length - 4, numberStr.length)
   );
 };
+
+export const getLast4 = (str: string): string => {
+  return str.substring(str.length - 4, str.length);
+};

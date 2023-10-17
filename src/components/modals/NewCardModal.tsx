@@ -1,8 +1,8 @@
 import { Button, Form, Input, Modal, Select, Row, notification } from "antd";
 import moment from "moment-timezone";
-import { useAppDispatch } from "../store/hooks";
+import { useAppDispatch } from "../../store/hooks";
 import { nanoid } from "nanoid";
-import { addCard } from "../store/features/cards";
+import { addCard } from "../../store/features/cards";
 interface NewCardModalProps {
   open: boolean;
   onCancel: () => void;
@@ -39,6 +39,8 @@ const NewCardModal = ({ open, onCancel }: NewCardModalProps) => {
         }}
         initialValues={{
           brand: "VISA",
+          expMonth: Math.floor(Math.random() * 12) + 1,
+          expYear: moment().year() + (Math.floor(Math.random() * 12) + 1),
         }}
       >
         <Form.Item

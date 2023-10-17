@@ -6,7 +6,7 @@ import DisplayCard from "./DisplayCard";
 import CardCarousel from "./CardCarousel";
 import DetailPanels from "./DetailPanels";
 import CardActions from "./CardActions";
-import NewCardModal from "./NewCardModal";
+import NewCardModal from "./modals/NewCardModal";
 const Home = () => {
   const [isAddModalOpen, setAddModal] = useState<boolean>(false);
   const items: TabsProps["items"] = [
