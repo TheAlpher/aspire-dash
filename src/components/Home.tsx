@@ -13,11 +13,11 @@ const Home = () => {
       label: "My debit cards",
       children: (
         <Row gutter={[24, 36]} className="mx-0">
-          <Col lg={12} md={24} sm={24}>
+          <Col lg={12} md={24} sm={24} xs={24}>
             <CardCarousel />
             <CardActions />
           </Col>{" "}
-          <Col lg={12} md={24} sm={24}>
+          <Col lg={12} md={24} sm={24} xs={24}>
             <DetailPanels />
           </Col>
         </Row>
@@ -46,7 +46,10 @@ const Home = () => {
           </Row>
         </div>
         <div className="home__header__right">
-          <Button className="home__header__right--add-btn" icon={<AddBox />}>
+          <Button
+            className="home__header__right--add-btn"
+            icon={<AddBox />}
+          >
             New Card
           </Button>
         </div>

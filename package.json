@@ -12,6 +12,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
     "antd": "^5.10.1",
+    "is-mobile": "^4.0.0",
     "moment-timezone": "^0.5.43",
     "nanoid": "^5.0.2",
     "react": "^18.2.0",

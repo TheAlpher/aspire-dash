@@ -39,9 +39,20 @@ const TransactionCard = ({ transaction }: TransactionCardProps) => {
     }
   };
   return (
-    <Row className="transaction-card mb-3" justify={"space-between"}>
-      <Col>{transactionTypeIcon(transaction.transactType)}</Col>
-      <Col lg={20} sm={20}>
+    <Row
+      className="transaction-card mb-3 px-2 mx-0 py-2"
+      justify={"space-between"}
+      gutter={[18, 12]}
+    >
+      <Col
+        lg={4}
+        sm={4}
+        xs={4}
+        className="px-0 d-flex justify-content-center align-items-center"
+      >
+        {transactionTypeIcon(transaction.transactType)}
+      </Col>
+      <Col lg={20} sm={20} xs={20}>
         <Row justify={"space-between"}>
           <Col>
             <p className="fw-bold mb-0">{transaction.name}</p>

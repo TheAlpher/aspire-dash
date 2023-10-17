@@ -25,10 +25,10 @@ const DisplayCard = (props: DisplayCardProps) => {
       </Button>
       <Card className="display-card__content">
         <LogoBig className="display-card__content--company" />
-        <p className="mt-4 display-card__content--username fw-bold">
+        <p className="mt-3 display-card__content--username fw-bold">
           {props.cardDetails?.username}
         </p>
-        <p className="mt-4 display-card__content--number ">
+        <p className="mt-2 display-card__content--number ">
           {generateNumberString(props.cardDetails.cardNumber, !showNumber)}
         </p>
         <Row>

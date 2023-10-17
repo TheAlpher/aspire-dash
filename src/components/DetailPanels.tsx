@@ -25,37 +25,37 @@ const DetailPanels = () => {
           ),
 
           children: (
-            <div>
+            <div className="p-2">
               <Row>
-                <Col lg={12} sm={12} className="fw-bold">
+                <Col lg={12} sm={12} xs={12} className="fw-bold">
                   Card Number:
                 </Col>
-                <Col lg={12} sm={12}>
+                <Col lg={12} sm={12} xs={12}>
                   {generateNumberString(
                     allCards[activeCardId as string]["cardNumber"],
                     true
                   )}
                 </Col>{" "}
-                <Col lg={12} sm={12} className="fw-bold">
+                <Col lg={12} sm={12} xs={12} className="fw-bold">
                   Card Holder:
                 </Col>
-                <Col lg={12} sm={12}>
+                <Col lg={12} sm={12} xs={12}>
                   {" "}
                   {allCards[activeCardId as string]["username"]}
                 </Col>{" "}
-                <Col lg={12} sm={12} className="fw-bold">
+                <Col lg={12} sm={12} xs={12} className="fw-bold">
                   Expiry Details:
                 </Col>
-                <Col lg={12} sm={12}>
+                <Col lg={12} sm={12} xs={12}>
                   {" "}
                   {allCards[activeCardId as string]["expMonth"]}
                   {"/"}
                   {allCards[activeCardId as string]["expYear"]}
                 </Col>{" "}
-                <Col lg={12} sm={12} className="fw-bold">
+                <Col lg={12} sm={12} xs={12} className="fw-bold">
                   CVV:
                 </Col>
-                <Col lg={12} sm={12}>
+                <Col lg={12} sm={12} xs={12}>
                   {" "}
                   {allCards[activeCardId as string]["cvv"]}
                 </Col>
@@ -72,7 +72,7 @@ const DetailPanels = () => {
             </Row>
           ),
           children: allCards[activeCardId as string]["transactions"].length ? (
-            <div>
+            <div >
               {allCards[activeCardId as string]["transactions"].map(
                 (transac: CardTransactDetails) => (
                   <TransactionCard key={transac.id} transaction={transac} />
@@ -87,13 +87,18 @@ const DetailPanels = () => {
               </Row>
             </div>
           ) : (
-            <p className="aspire-green-text px-2 py-2">No transactions</p>
+            <p className="aspire-green-text px-2 py-2 mb-0">No transactions</p>
           ),
         },
       ]
     : [];
   return activeCardId ? (
-    <Collapse expandIconPosition="end" items={items} defaultActiveKey={["1"]} />
+    <Collapse
+      expandIconPosition="end"
+      items={items}
+      defaultActiveKey={["1"]}
+      className="w-100 details-panel__collapse"
+    />
   ) : (
     <p className="aspire-green-text px-2 py-2">No active cards</p>
   );
