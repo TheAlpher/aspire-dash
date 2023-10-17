@@ -20,13 +20,22 @@ export const useWindowDimensions = (): winDimensions => {
     getWindowDimensions()
   );
 
+  let throttled: boolean = false;
   useEffect(() => {
     if (hasWindow) {
       function handleResize() {
         setWindowDimensions(getWindowDimensions());
       }
 
-      window.addEventListener("resize", handleResize);
+      window.addEventListener("resize", function () {
+        if (!throttled) {
+          handleResize();
+          throttled = true;
+          setTimeout(function () {
+            throttled = false;
+          }, 100);
+        }
+      });
       return () => window.removeEventListener("resize", handleResize);
     }
   }, [hasWindow]);
