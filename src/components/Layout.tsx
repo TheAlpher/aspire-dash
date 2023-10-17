@@ -1,7 +1,6 @@
-import React, { useState, useCallback } from "react";
-import { Layout, Space, Menu } from "antd";
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
-import type { MenuProps } from "antd";
+import { useState, useCallback } from "react";
+import { Layout, Menu } from "antd";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { EllipsisOutlined } from "@ant-design/icons";
 import { useLocation, Link } from "react-router-dom";
 import Home from "../pages/Home";

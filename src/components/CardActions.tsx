@@ -1,7 +1,7 @@
 import { Col, Row, notification } from "antd";
 import { CARD_ACTIONS } from "../utils/constants";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { freezeToggle, removeCard, updateCard } from "../store/features/cards";
+import { freezeToggle, updateCard } from "../store/features/cards";
 import { useState, Fragment } from "react";
 import { getLast4 } from "../utils/helpers";
 import RemoveCardModal from "./modals/RemoveCardModal";

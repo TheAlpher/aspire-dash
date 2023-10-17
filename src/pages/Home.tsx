@@ -1,8 +1,7 @@
-import { Fragment, useState } from "react";
+import {  useState } from "react";
 import { Row, Tag, Button, Tabs, Col } from "antd";
 import AddBox from "../assets/AddBox.svg?react";
 import type { TabsProps } from "antd";
-import DisplayCard from "../components/DisplayCard";
 import CardCarousel from "../components/CardCarousel";
 import DetailPanels from "../components/DetailPanels";
 import CardActions from "../components/CardActions";

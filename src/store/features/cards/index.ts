@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { CardDetailsInterface, CardsStateInterface } from "../../../interfaces";
-import { INIT_CARDS, INIT_CARDS_STATE } from "../../../utils/constants";
+import { CardDetailsInterface } from "../../../interfaces";
+import {  INIT_CARDS_STATE } from "../../../utils/constants";
 
 const cardSlice = createSlice({
   name: "cards",
